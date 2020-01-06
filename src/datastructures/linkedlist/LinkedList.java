@@ -34,12 +34,15 @@ public class LinkedList<T> {
 			this.head = new Node<T>(data);
 			return;
 		}
-		Node<T> temp =head;
-		while(temp !=null)
+		else
 		{
-			temp  = temp.next;
+			Node<T> temp =head;
+			while(temp.next !=null)
+			{
+				temp  = temp.next;
+			}
+			temp.next = new Node<T>(data);
 		}
-		temp.next = new Node<T>(data);
 	}
 
 	public Node<T> getNode(T data) {
@@ -57,7 +60,7 @@ public class LinkedList<T> {
 		String s = "[";
 		Node<T> temp = head;
 		while (temp != null) {
-			s += head.toString() + ",";
+			s += temp.toString() + ",";
 			temp = temp.next;
 		}
 		s += "]";
