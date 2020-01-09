@@ -16,7 +16,7 @@ public class MapStream {
 		
 		System.out.println(linkedHash.entrySet().toString());
 		
-		linkedHash.entrySet().stream().map((Entry<String,String> entry,) -> ).
+		//linkedHash.entrySet().stream().map((Entry<String,String> entry,) -> ).
 		
 	}
 }
