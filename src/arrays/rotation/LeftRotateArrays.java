@@ -1,4 +1,6 @@
-package arrays;
+package arrays.rotation;
+
+import arrays.TestService;
 
 public class LeftRotateArrays implements TestService{
 

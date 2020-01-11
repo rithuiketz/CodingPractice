@@ -1,4 +1,4 @@
-package arrays;
+package arrays.rotation;
 
 import static org.junit.Assert.*;
 

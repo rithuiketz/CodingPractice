@@ -7,6 +7,9 @@ import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
+import arrays.rotation.LeftRotateArrays;
+import arrays.rotation.SearchElementInRotatedArray;
+
 public class ArraysTest {
 
 	@Test
