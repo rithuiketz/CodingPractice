@@ -3,10 +3,10 @@ package datastructures.linkedlist;
 public class LinkedList<T> {
 	private Node<T> head;
 
-	private class Node<T> {
+	protected class Node<T> {
 		private T data;
 
-		private Node<T> next;
+		protected Node<T> next;
 
 		Node(T data) {
 			this.data = data;
@@ -27,19 +27,14 @@ public class LinkedList<T> {
 		}
 	}
 
-	public void add(T data) 
-	{
-		if(this.head == null)
-		{
+	public void add(T data) {
+		if (this.head == null) {
 			this.head = new Node<T>(data);
 			return;
-		}
-		else
-		{
-			Node<T> temp =head;
-			while(temp.next !=null)
-			{
-				temp  = temp.next;
+		} else {
+			Node<T> temp = head;
+			while (temp.next != null) {
+				temp = temp.next;
 			}
 			temp.next = new Node<T>(data);
 		}
@@ -53,6 +48,15 @@ public class LinkedList<T> {
 			}
 		}
 		return null;
+	}
+
+	public Node<T> getHead() {
+		return this.head;
+	}
+	
+	public void setHead(Node<T> node)
+	{
+		this.head =node;
 	}
 
 	@Override
