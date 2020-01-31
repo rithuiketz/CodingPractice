@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.HashMap;
+
 import org.junit.Test;
 
 /**
@@ -14,7 +16,7 @@ public class FindContigiousSubArraySumGivenToANumber {
 	public void test() {
 		int num = 33;
 		int[] testArr = { 1, 4, 20, 3, 10, 5 };
-		findContinusSubArrayNonNegative(num, testArr);
+		findContinusSubArrayNegative(num, testArr);
 	}
 
 	private void findContinusSubArrayNonNegative(int num, int[] testArr) {
@@ -33,6 +35,28 @@ public class FindContigiousSubArraySumGivenToANumber {
 			}
 		}
 
+	}
+
+	private void findContinusSubArrayNegative(int num, int[] testArr) 
+	{
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int curSum=0;
+		for(int i=0;i<testArr.length;i++)
+		{
+			curSum+=testArr[i];
+			if(curSum==num)
+			{
+				System.out.println("Num Found Bn " + 0+ " &" + i);
+			}
+			if(map.containsKey(curSum-num))
+			{
+				int start = curSum-num;
+				System.out.println("Num Found Bn " + (map.get(start)+1) + " &" + i);
+				return;
+			}			
+			map.put(curSum, i);
+		}
+	
 	}
 
 }
