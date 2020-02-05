@@ -45,7 +45,7 @@ public class TreeStructure {
 			while (targetNode.left != null && data < targetNode.data) {
 				targetNode = targetNode.left;
 			}
-			while (data > targetNode.data && targetNode.right != null) {
+			while (targetNode.right != null && data > targetNode.data ) {
 				targetNode = targetNode.right;
 			}
 

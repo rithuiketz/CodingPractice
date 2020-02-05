@@ -1,5 +1,7 @@
 package trees;
 
+import java.util.Stack;
+
 import trees.TreeStructure.TreeNode;
 
 public class InOrderTraversal {
@@ -13,16 +15,18 @@ public class InOrderTraversal {
 		treeStructure.add(44);
 		treeStructure.add(33);
 		treeStructure.add(46);
-		printPreOrder(treeStructure.getRoot());
+		printInOrderNonRec(treeStructure.getRoot());
 	}
 
-	private static void printPreOrder(TreeNode node) {
+	private static void printInOrderRec(TreeNode node) {
 		if (node == null)
 			return;
-		printPreOrder(node.getLeft());
+		printInOrderRec(node.getLeft());
 		System.out.print(node.getData() + "; ");
-		printPreOrder(node.getRight());
-
+		printInOrderRec(node.getRight());
 	}
+
+	private static void printInOrderNonRec(TreeNode node)
+	{}
 
 }
