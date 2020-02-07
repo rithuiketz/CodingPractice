@@ -15,7 +15,10 @@ public class InOrderTraversal {
 		treeStructure.add(44);
 		treeStructure.add(33);
 		treeStructure.add(46);
+		printInOrderRec(treeStructure.getRoot());
+		System.out.println("");
 		printInOrderNonRec(treeStructure.getRoot());
+		
 	}
 
 	private static void printInOrderRec(TreeNode node) {
@@ -27,6 +30,23 @@ public class InOrderTraversal {
 	}
 
 	private static void printInOrderNonRec(TreeNode node)
-	{}
+	{
+		Stack<TreeNode> stack  = new Stack<>();
+		TreeNode current =  node;
+		while(true)
+		{
+			while(current !=null)
+			{
+				
+				stack.push(current);
+				current =current.getLeft();
+			}
+			current = stack.pop();
+			System.out.print(current.getData()+"; ");
+			current =current.getRight();
+			if(stack.isEmpty() && current==null)
+				return;
+		}
+	}
 
 }
