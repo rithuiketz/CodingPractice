@@ -22,20 +22,37 @@ public class ReverseLinkedList
 		ReverseLinkedList obj = new ReverseLinkedList();
 		System.out.println("Before Reversing");
 		System.out.println(linkedList);
-		System.out.println("#################");
+		
+		//Non Recursively
+		System.out.println("Non Recursive #################");
 		obj.revrseList(linkedList);
-	//	System.out.println(linkedList);
+		System.out.println(linkedList);
+		
+		//Recursively
+		System.out.println("Recursive #################");
+		linkedList.setHead(obj.reverseRecursive(linkedList.getHead(), null));
+		System.out.println(linkedList);
+	
 
 	}
 
 	public <T> void  revrseList(LinkedList<T> list)
 	{
-		Node curr = list.getHead();
-		Node prev = null;
-		
-		Node node = reverseRecursive(curr,prev);
-		list.setHead(node);
-		System.out.println(list);
+		if(list.getHead() ==null || list.getHead().next ==null)
+			return;
+		else
+		{
+			Node current,prev=null,temp;
+			current = list.getHead();
+			while(current !=null)
+			{
+				temp =current.next;
+				current.next=prev;
+				prev=current;
+				current =temp;
+			}
+			list.setHead(prev);
+		}
 	}
 
 	private Node reverseRecursive(Node curr, Node prev) 
@@ -48,12 +65,6 @@ public class ReverseLinkedList
 		Node next  = curr.next;
 		curr.next = prev;
 		return reverseRecursive(next, curr);
-	}
-	
-	private Node nonRecursive(LinkedList<Integer> list)
-	{
-		return null;
-		
 	}
 
 }
