@@ -32,6 +32,7 @@ public class AddOne {
 		List<Integer> testList = Arrays.asList(2, 5, 6, 8, 6, 1, 2, 4, 5 );
 		List<Integer> expectedList = Arrays.asList(2,5,6,8,6,1,2,4,6);
 		testList =  addOneAndGet(testList);
+		System.out.println(testList.toString());
 		assertArrayEquals(expectedList.toArray(), testList.toArray());
 		
 	}
@@ -48,13 +49,14 @@ public class AddOne {
 		num+=1;
 		int index = size-1;
 		int[] arr =  new int[size];
-		power=1;
 		int temp = num;
 		while(temp >10)
 		{
-			//temp = temp%10
-			//--index;
+			arr[index] =temp%10;
+			temp=temp/10;
+			index-=1;
 		}	
+		arr[index] =temp;
 		for(int i :arr)
 		{
 			result.add(i);
