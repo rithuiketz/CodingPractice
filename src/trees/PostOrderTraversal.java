@@ -13,17 +13,19 @@ public class PostOrderTraversal {
 		treeStructure.add(44);
 		treeStructure.add(33);
 		treeStructure.add(46);
-		printPreOrder(treeStructure.getRoot());
+		printPostOrder(treeStructure.getRoot());
 	}
 
-	private static void printPreOrder(TreeNode node) {
+	private static void printPostOrder(TreeNode node) {
 		if (node == null)
 			return;
-		printPreOrder(node.getLeft());
-		printPreOrder(node.getRight());
+		printPostOrder(node.getLeft());
+		printPostOrder(node.getRight());
 		System.out.print(node.getData() + "; ");
-		
-
 	}
-
+	
+	private static void printPostOrderNonRec(TreeNode node)
+	{
+		
+	}
 }
