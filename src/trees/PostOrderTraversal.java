@@ -1,5 +1,7 @@
 package trees;
 
+import java.util.Stack;
+
 import trees.TreeStructure.TreeNode;
 
 public class PostOrderTraversal {
@@ -13,19 +15,41 @@ public class PostOrderTraversal {
 		treeStructure.add(44);
 		treeStructure.add(33);
 		treeStructure.add(46);
-		printPostOrder(treeStructure.getRoot());
+		printPostOrderRec(treeStructure.getRoot());
+		System.out.println();
+		printPostOrderNonRec(treeStructure.getRoot());
 	}
 
-	private static void printPostOrder(TreeNode node) {
+	private static void printPostOrderRec(TreeNode node) {
 		if (node == null)
 			return;
-		printPostOrder(node.getLeft());
-		printPostOrder(node.getRight());
+		printPostOrderRec(node.getLeft());
+		printPostOrderRec(node.getRight());
 		System.out.print(node.getData() + "; ");
 	}
 	
-	private static void printPostOrderNonRec(TreeNode node)
-	{
-		
-	}
+	 private static void printPostOrderNonRec(TreeNode root) {
+			
+			if(root==null)
+				return;
+			TreeNode pre=null;
+			Stack<TreeNode> s = new Stack();      
+			while(root!=null || !s.empty()){
+				if(root!=null){				
+					s.push(root);
+					root = root.getLeft();
+				}
+				else{
+					root = s.peek();
+					if(root.getRight()==null || root.getRight()==pre){
+					    System.out.println(root.getData());;
+					    s.pop();
+					    pre=root;
+					    root = null;
+					}
+					else
+					    root = root.getRight();
+				}
+			}
+		}
 }
